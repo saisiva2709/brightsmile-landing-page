@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from "@/components/ui/card";
 import { 
-  Smile, ShieldCheck, Tooth, Sparkles, 
+  Smile, ShieldCheck, Activity, Sparkles, 
   Workflow, Baby 
 } from 'lucide-react';
 
@@ -45,7 +45,7 @@ export function Services() {
     {
       title: "Root Canals",
       description: "Advanced treatment to save severely infected teeth and relieve pain by removing damaged pulp.",
-      icon: <Tooth className="h-8 w-8 text-dental-accent" />,
+      icon: <Activity className="h-8 w-8 text-dental-accent" />,
       bgClass: "bg-gradient-to-br from-dental-mint to-white"
     },
     {
@@ -63,7 +63,7 @@ export function Services() {
     {
       title: "Dental Implants",
       description: "Permanent tooth replacement solutions that look, feel and function just like natural teeth.",
-      icon: <Tooth className="h-8 w-8 text-dental-accent" />,
+      icon: <Activity className="h-8 w-8 text-dental-accent" />,
       bgClass: "bg-gradient-to-br from-dental-blue/20 to-white"
     },
     {
