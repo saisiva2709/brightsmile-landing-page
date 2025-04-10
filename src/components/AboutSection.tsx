@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, Timer, Wallet, ThumbsUp } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
 
 interface FeatureProps {
   title: string;
@@ -13,17 +12,19 @@ interface FeatureProps {
 function Feature({ title, description, icon }: FeatureProps) {
   return (
     <motion.div 
-      className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-dental-blue/10 h-full"
+      className="flex flex-col p-6 bg-white rounded-xl shadow-sm border border-dental-blue/10 h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <div className="h-14 w-14 rounded-full bg-dental-blue flex items-center justify-center mb-4">
-        {icon}
+      <div className="flex items-center mb-4">
+        <div className="h-12 w-12 rounded-full bg-dental-blue flex items-center justify-center mr-4">
+          {icon}
+        </div>
+        <h3 className="text-xl font-semibold">{title}</h3>
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground text-sm">{description}</p>
+      <p className="text-muted-foreground">{description}</p>
     </motion.div>
   );
 }
@@ -55,42 +56,40 @@ export function AboutSection() {
   return (
     <section id="about" className="w-full py-16 md:py-24 bg-dental-mint/30">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose BrightSmile</h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              At BrightSmile Dental Care, we believe in providing exceptional dental care that goes beyond just treating teeth. Our mission is to create a positive dental experience that prioritizes your comfort and well-being.
-            </p>
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-dental-blue rounded-full opacity-20 blur-xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" 
-                alt="Dental clinic staff" 
-                className="w-full h-auto rounded-2xl shadow-lg"
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-          
-          <div className="order-1 lg:order-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <Feature 
-                  key={index} 
-                  title={feature.title} 
-                  description={feature.description} 
-                  icon={feature.icon} 
-                />
-              ))}
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose BrightSmile</h2>
+          <p className="text-lg text-muted-foreground">
+            At BrightSmile Dental Care, we believe in providing exceptional dental care that goes beyond just treating teeth. 
+            Our mission is to create a positive dental experience that prioritizes your comfort and well-being.
+          </p>
         </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {features.map((feature, index) => (
+            <Feature 
+              key={index} 
+              title={feature.title} 
+              description={feature.description} 
+              icon={feature.icon} 
+            />
+          ))}
+        </div>
+        
+        <motion.div
+          className="mt-16 relative rounded-2xl overflow-hidden shadow-xl"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute -top-4 -left-4 w-20 h-20 bg-dental-blue rounded-full opacity-20 blur-xl"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" 
+            alt="Our dental clinic staff" 
+            className="w-full h-auto rounded-2xl"
+            loading="lazy"
+          />
+        </motion.div>
       </div>
     </section>
   );

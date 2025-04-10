@@ -24,7 +24,7 @@ function Hero() {
 
   return (
     <section id="home" className="w-full min-h-screen relative flex items-center">
-      {/* Video Background */}
+      {/* Video Background - Modified for better visibility */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video 
           autoPlay 
@@ -32,11 +32,10 @@ function Hero() {
           loop 
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1000"
         >
           <source src="/5356069-uhd_3840_2160_25fps.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10 relative">
@@ -88,7 +87,7 @@ function Hero() {
               </a>
             </Button>
             <Button size="lg" className="gap-2" variant="outline" asChild>
-              <a href="tel:+1234567890">
+              <a href="#faqs">
                 Call Now <PhoneCall className="w-4 h-4" />
               </a>
             </Button>
