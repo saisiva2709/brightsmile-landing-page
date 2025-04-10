@@ -35,11 +35,11 @@ export function NavBar({ className }: NavBarProps) {
     }
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY + 100;
       const sections = document.querySelectorAll('section[id]');
       
       sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop - 100;
+        const sectionTop = (section as HTMLElement).offsetTop;
         const sectionHeight = (section as HTMLElement).offsetHeight;
         const sectionId = section.getAttribute('id');
         
@@ -71,7 +71,7 @@ export function NavBar({ className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-2 md:gap-3 bg-white/80 border border-dental-blue backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center gap-2 md:gap-3 bg-white/90 border border-dental-blue backdrop-blur-lg py-1 px-3 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name

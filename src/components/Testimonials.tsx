@@ -37,7 +37,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="w-full py-16 md:py-24 bg-dental-blue/10 relative overflow-hidden">
+    <section id="testimonials" className="w-full py-16 md:py-24 bg-dental-blue/10 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-dental-mint rounded-full opacity-30 blur-3xl"></div>
@@ -46,8 +46,8 @@ export function Testimonials() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Patients Say</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-4">What Our Patients Say</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-montserrat">
             Don't just take our word for it. Hear from our satisfied patients about their experiences at BrightSmile Dental Care.
           </p>
         </div>

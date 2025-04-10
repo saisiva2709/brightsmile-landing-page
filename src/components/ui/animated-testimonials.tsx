@@ -121,48 +121,28 @@ export const AnimatedTestimonials = ({
                 </svg>
               ))}
             </div>
-            <h3 className="text-2xl font-bold text-dental-dark">
+            <h3 className="text-2xl font-playfair font-bold text-dental-dark">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground font-montserrat">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-muted-foreground mt-6">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
+            <motion.p className="text-lg text-muted-foreground mt-6 font-montserrat">
+              "{testimonials[active].quote}"
             </motion.p>
           </motion.div>
           <div className="flex gap-4 pt-8">
             <button
               onClick={handlePrev}
               className="h-10 w-10 rounded-full bg-dental-mint hover:bg-dental-mint/80 flex items-center justify-center transition-colors"
+              aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5 text-dental-dark" />
             </button>
             <button
               onClick={handleNext}
               className="h-10 w-10 rounded-full bg-dental-mint hover:bg-dental-mint/80 flex items-center justify-center transition-colors"
+              aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5 text-dental-dark" />
             </button>

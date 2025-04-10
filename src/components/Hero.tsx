@@ -1,109 +1,73 @@
 
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { MoveRight, PhoneCall, CalendarCheck } from "lucide-react";
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
+import { PhoneCall, Calendar } from 'lucide-react';
 
-function Hero() {
-  const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["gentle", "trusted", "modern", "professional", "caring"],
-    []
-  );
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (titleNumber === titles.length - 1) {
-        setTitleNumber(0);
-      } else {
-        setTitleNumber(titleNumber + 1);
-      }
-    }, 2000);
-    return () => clearTimeout(timeoutId);
-  }, [titleNumber, titles]);
-
+export function Hero() {
   return (
-    <section id="home" className="w-full min-h-screen relative flex items-center">
-      {/* Video Background - Modified for better visibility */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+    <section id="home" className="relative w-full h-screen overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <video 
           autoPlay 
           muted 
           loop 
           playsInline
           className="w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1606265752440-d8f17cec4bee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
         >
           <source src="/5356069-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
       </div>
-
-      <div className="container mx-auto px-4 z-10 relative">
-        <div className="flex gap-8 py-20 lg:py-32 items-center justify-center flex-col text-center">
-          <div>
-            <Button variant="secondary" size="sm" className="gap-2 bg-dental-mint text-dental-dark">
-              Your smile is our priority <MoveRight className="w-4 h-4" />
+      
+      <div className="relative z-10 container mx-auto h-full flex items-center justify-center px-4">
+        <div className="text-center max-w-3xl">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Gentle Dental Care You Can Trust
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-white/90 mb-8 font-montserrat"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Experienced dentists. Modern care. Beautiful smiles.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Button size="lg" className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6">
+              <Calendar className="mr-2 h-5 w-5" /> Book Appointment
             </Button>
-          </div>
-          <div className="flex gap-4 flex-col">
-            <h1 className="text-4xl md:text-6xl tracking-tight font-bold">
-              <span className="text-dental-dark">We provide</span>
-              <span className="relative flex w-full justify-center overflow-hidden md:pb-4 md:pt-1 text-dental-accent">
-                &nbsp;
-                {titles.map((title, index) => (
-                  <motion.span
-                    key={index}
-                    className="absolute font-semibold"
-                    initial={{ opacity: 0, y: "-100px" }}
-                    transition={{ type: "spring", stiffness: 50 }}
-                    animate={
-                      titleNumber === index
-                        ? {
-                            y: 0,
-                            opacity: 1,
-                          }
-                        : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
-                    }
-                  >
-                    {title}
-                  </motion.span>
-                ))}
-              </span>
-              <span className="block mt-2 text-dental-dark">dental care you can trust</span>
-            </h1>
-
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground mx-auto max-w-2xl">
-              Experienced dentists. Modern techniques. Beautiful smiles.
-              We're committed to providing the highest quality dental care in a comfortable environment.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 mt-4">
-            <Button size="lg" className="gap-2 bg-dental-accent hover:bg-dental-accent/90 text-white" asChild>
-              <a href="#appointment">
-                Book Appointment <CalendarCheck className="w-4 h-4" />
-              </a>
+            <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white/20 py-6">
+              <PhoneCall className="mr-2 h-5 w-5" /> Call Now
             </Button>
-            <Button size="lg" className="gap-2" variant="outline" asChild>
-              <a href="#faqs">
-                Call Now <PhoneCall className="w-4 h-4" />
-              </a>
-            </Button>
-          </div>
-        </div>
-        <div className="flex justify-center mt-4">
-          <a href="#services" className="animate-bounce p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-dental-accent">
-              <path d="M12 5v14"></path>
-              <path d="m19 12-7 7-7-7"></path>
-            </svg>
-          </a>
+          </motion.div>
+          
+          <motion.div 
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{ duration: 1.5, delay: 0.8, repeat: Infinity }}
+          >
+            <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center">
+              <div className="w-1.5 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-
-export { Hero };

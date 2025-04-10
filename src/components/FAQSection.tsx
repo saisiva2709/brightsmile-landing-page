@@ -30,6 +30,22 @@ export function FAQSection() {
     {
       question: "How can I improve my smile?",
       answer: "We offer numerous cosmetic dentistry options including professional teeth whitening, veneers, bonding, and orthodontic treatments like Invisalign. Schedule a consultation to discuss which options would work best to achieve your desired smile."
+    },
+    {
+      question: "Does teeth whitening cause sensitivity?",
+      answer: "Some patients may experience temporary sensitivity during or after whitening treatments. We use professional-grade products designed to minimize sensitivity, and can recommend special toothpastes or treatments if you have concerns."
+    },
+    {
+      question: "At what age should children have their first dental visit?",
+      answer: "The American Academy of Pediatric Dentistry recommends a child's first dental visit occur by their first birthday or within six months after their first tooth erupts. Early visits help establish good oral health habits and familiarize children with the dental office."
+    },
+    {
+      question: "How long do dental implants last?",
+      answer: "With proper care and maintenance, dental implants can last a lifetime. The crown attached to the implant typically needs replacement every 10-15 years due to normal wear and tear, but the implant itself can remain permanently integrated with the jawbone."
+    },
+    {
+      question: "What payment options do you offer?",
+      answer: "We offer various payment options including cash, credit cards, and flexible payment plans. We also work with several financing companies to help make your dental care affordable. Our front desk team will be happy to discuss all options available to you."
     }
   ];
 
@@ -54,16 +70,16 @@ export function FAQSection() {
           >
             <div className="flex items-center mb-8">
               <HelpCircle className="h-8 w-8 text-dental-accent mr-3" />
-              <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-playfair font-bold">Frequently Asked Questions</h2>
             </div>
             
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`faq-${index}`}>
-                  <AccordionTrigger className="text-left text-lg font-medium">
+                  <AccordionTrigger className="text-left text-lg font-montserrat font-medium">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
+                  <AccordionContent className="text-muted-foreground font-montserrat">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -80,11 +96,11 @@ export function FAQSection() {
           >
             <div className="flex items-center mb-8">
               <Lightbulb className="h-8 w-8 text-dental-accent mr-3" />
-              <h2 className="text-3xl font-bold">Dental Care Tips</h2>
+              <h2 className="text-3xl font-playfair font-bold">Dental Care Tips</h2>
             </div>
             
             <div className="bg-dental-mint/20 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-6">Keep Your Smile Healthy Between Visits</h3>
+              <h3 className="text-xl font-montserrat font-semibold mb-6">Keep Your Smile Healthy Between Visits</h3>
               
               <ul className="space-y-4">
                 {dentalTips.map((tip, index) => (
@@ -99,13 +115,13 @@ export function FAQSection() {
                     <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-dental-accent text-white text-sm mr-3 flex-shrink-0 mt-0.5">
                       {index + 1}
                     </span>
-                    <span>{tip}</span>
+                    <span className="font-montserrat">{tip}</span>
                   </motion.li>
                 ))}
               </ul>
               
               <div className="mt-8 p-4 bg-white rounded-lg shadow-sm border border-dental-blue/10">
-                <p className="text-sm text-dental-dark font-medium">
+                <p className="text-sm text-dental-dark font-montserrat font-medium">
                   Remember, preventive care is the best approach to dental health. 
                   Regular dental check-ups and good home care habits can help prevent most dental problems!
                 </p>
