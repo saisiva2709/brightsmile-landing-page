@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, Timer, Wallet, ThumbsUp } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
 
 interface FeatureProps {
   title: string;
@@ -12,7 +13,7 @@ interface FeatureProps {
 function Feature({ title, description, icon }: FeatureProps) {
   return (
     <motion.div 
-      className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-dental-blue/10"
+      className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-dental-blue/10 h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -54,9 +55,9 @@ export function AboutSection() {
   return (
     <section id="about" className="w-full py-16 md:py-24 bg-dental-mint/30">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
-            className="lg:w-1/2"
+            className="order-2 lg:order-1"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -69,15 +70,16 @@ export function AboutSection() {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-20 h-20 bg-dental-blue rounded-full opacity-20 blur-xl"></div>
               <img 
-                src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=1000" 
+                src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" 
                 alt="Dental clinic staff" 
                 className="w-full h-auto rounded-2xl shadow-lg"
+                loading="lazy"
               />
             </div>
           </motion.div>
           
-          <div className="lg:w-1/2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="order-1 lg:order-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <Feature 
                   key={index} 
