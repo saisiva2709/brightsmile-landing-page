@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from "@/components/ui/button";
-import { PhoneCall, Calendar } from 'lucide-react';
+import { Hero as AnimatedHero } from "@/components/ui/animated-hero";
 
 export function Hero() {
   return (
@@ -23,50 +22,18 @@ export function Hero() {
       </div>
       
       <div className="relative z-10 container mx-auto h-full flex items-center justify-center px-4">
-        <div className="text-center max-w-3xl">
-          <motion.h1 
-            className="text-4xl md:text-6xl font-playfair font-bold text-white mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Gentle Dental Care You Can Trust
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-white/90 mb-8 font-montserrat"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Experienced dentists. Modern care. Beautiful smiles.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Button size="lg" className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6">
-              <Calendar className="mr-2 h-5 w-5" /> Book Appointment
-            </Button>
-            <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white/20 py-6">
-              <PhoneCall className="mr-2 h-5 w-5" /> Call Now
-            </Button>
-          </motion.div>
-          
-          <motion.div 
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: [0, 10, 0] }}
-            transition={{ duration: 1.5, delay: 0.8, repeat: Infinity }}
-          >
-            <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center">
-              <div className="w-1.5 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
-            </div>
-          </motion.div>
-        </div>
+        <AnimatedHero />
+        
+        <motion.div 
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ duration: 1.5, delay: 0.8, repeat: Infinity }}
+        >
+          <div className="w-8 h-12 border-2 border-white/60 rounded-full flex justify-center">
+            <div className="w-1.5 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

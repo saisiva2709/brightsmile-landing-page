@@ -91,12 +91,14 @@ export function AboutSection() {
             <p className="text-muted-foreground mb-6 font-montserrat">
               Schedule your first appointment today and see why so many patients choose us for their dental care.
             </p>
-            <a 
-              href="#appointment" 
+            <button 
+              onClick={() => {
+                document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="inline-block bg-dental-accent text-white font-medium px-6 py-3 rounded-md hover:bg-dental-accent/80 transition-colors"
             >
               Book Your Visit
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>
