@@ -22,6 +22,16 @@ function Hero() {
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.getBoundingClientRect().top + window.scrollY - 100,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <div className="w-full">
       <div className="container mx-auto">
@@ -62,12 +72,7 @@ function Hero() {
             <Button 
               size="lg" 
               className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6"
-              onClick={() => {
-                const appointmentSection = document.getElementById('appointment');
-                if (appointmentSection) {
-                  appointmentSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={() => scrollToSection('appointment')}
             >
               <Calendar className="mr-2 h-5 w-5" /> Book Appointment
             </Button>
@@ -75,12 +80,7 @@ function Hero() {
               size="lg" 
               variant="outline" 
               className="bg-white/10 text-white border-white hover:bg-white/20 py-6"
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={() => scrollToSection('contact')}
             >
               <PhoneCall className="mr-2 h-5 w-5" /> Call Now
             </Button>
