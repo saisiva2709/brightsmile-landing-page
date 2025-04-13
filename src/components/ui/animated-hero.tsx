@@ -33,7 +33,7 @@ function Hero() {
               {titles.map((title, index) => (
                 <motion.span
                   key={index}
-                  className="absolute font-semibold text-white"
+                  className="absolute font-semibold text-dental-accent"
                   initial={{ opacity: 0, y: "-100" }}
                   transition={{ type: "spring", stiffness: 50 }}
                   animate={
@@ -63,7 +63,10 @@ function Hero() {
               size="lg" 
               className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6"
               onClick={() => {
-                document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' });
+                const appointmentSection = document.getElementById('appointment');
+                if (appointmentSection) {
+                  appointmentSection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               <Calendar className="mr-2 h-5 w-5" /> Book Appointment
@@ -73,7 +76,10 @@ function Hero() {
               variant="outline" 
               className="bg-white/10 text-white border-white hover:bg-white/20 py-6"
               onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
             >
               <PhoneCall className="mr-2 h-5 w-5" /> Call Now
