@@ -71,7 +71,7 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6"
+              className="bg-dental-accent hover:bg-dental-accent/80 text-white font-medium py-6 cursor-pointer" // Added cursor-pointer
               onClick={() => scrollToSection('appointment')}
             >
               <Calendar className="mr-2 h-5 w-5" /> Book Appointment
@@ -79,7 +79,7 @@ function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-white/10 text-white border-white hover:bg-white/20 py-6"
+              className="bg-white/10 text-white border-white hover:bg-white/20 py-6 cursor-pointer" // Added cursor-pointer
               onClick={() => scrollToSection('contact')}
             >
               <PhoneCall className="mr-2 h-5 w-5" /> Call Now
@@ -92,3 +92,4 @@ function Hero() {
 }
 
 export { Hero };
+
