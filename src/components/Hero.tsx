@@ -15,7 +15,7 @@ export function Hero() {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1606265752440-d8f17cec4bee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
         >
-          <source src="/5356069-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          <source src="/4490285-uhd_3840_2160_25fps.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
